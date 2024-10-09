@@ -65,7 +65,7 @@ def ingest_file(filepath: str):
 
 def ingest_data():
     directory = 'data/wx_data'
-    files = [os.path.join(directory, f) for f in os.listdir(directory) if os.path.isfile(os.path.join(directory, f))][:5]
+    files = [os.path.join(directory, f) for f in os.listdir(directory) if os.path.isfile(os.path.join(directory, f))]
     
     for filepath in files:
         ingest_file(filepath)
