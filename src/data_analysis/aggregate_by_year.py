@@ -1,22 +1,9 @@
-import logging
-logging.basicConfig(
-    level=logging.DEBUG,
-    format='%(asctime)s - %(levelname)s - %(message)s',
-    handlers=[
-        logging.FileHandler('app.log'),
-        logging.StreamHandler()
-    ]
-)
-
 from sqlalchemy.orm import Session
 from sqlalchemy import func
 
 from data_models.weather_data import WeatherData
 from data_models.yearly_aggregations import YearlyAggregation
 from data_models import engine
-
-
-logger = logging.getLogger(__name__)
 
 
 def aggregate_by_year():
@@ -33,8 +20,6 @@ def aggregate_by_year():
         ).all()
 
         for result in results:
-            logger.debug(result)
-
             summary = YearlyAggregation(
                 station_id=result.station_id, 
                 year=result.year,
