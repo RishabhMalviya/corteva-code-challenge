@@ -1,0 +1,30 @@
+SHELL := /bin/bash
+
+# Colors for `echo` commands
+RED = \033[31m
+GREEN = \033[32m
+YELLOW = \033[33m
+BLUE = \033[34m
+RESET = \033[0m
+
+clean:
+	find . | grep -E "(__pycache__|.pytest_cache|.ipynb_checkpoints|*.egg-info)" | xargs rm -rf
+
+setup:
+	@if [ -d "./.venv" ]; then \
+		echo  "Deleting existing venv..."; \
+		rm -rf ./.venv; \
+		echo "Existing venv removed"; \
+	fi
+	python3 -m venv .venv
+	source ./.venv/bin/activate && pip install -e .[dev]
+	@echo -e "\n$(RED)NOTE!!$(RESET): Activate the venv with the following command: $(GREEN)source ./.venv/bin/activate$(RESET)"
+
+run_data_pipeline:
+	source ./.venv/bin/activate && python ./src/scripts/run_data_pipeline.py
+
+run_data_analysis:
+	source ./.venv/bin/activate && python ./src/scripts/run_data_analysis.py
+
+run_api:
+	source ./.venv/bin/activate && uvicorn --port 8501 --reload src.scripts.app:app
