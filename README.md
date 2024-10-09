@@ -8,7 +8,7 @@ This solution makes use of `pyproject.toml` and expects the end user to have `pi
 
 Run `make setup` to setup your local venv. Then run `source ./.venv/bin/activate` to activate it. All the following steps assume you have this venv activated.
 
-#### Running Tests
+### 1.5 Running Tests
 You can run tests by simply running `pytest` from the repo root.
 
 ### 2. Data Ingestion Pipeline
