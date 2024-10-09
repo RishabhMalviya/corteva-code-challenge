@@ -31,7 +31,7 @@ Now that you have the DB, you start the API server to interact with it. Run `mak
 ## How to Deploy (Bonus Question)
 The first step to any deployment process would be to containerize this code. We could use a simple `python:3.10.12` base container, copy our code over, pip install it, and then specify the entrypoint. 
 
-Something like this:
+Something like this (this is un-tested):
 ```Dockerfile
 FROM python:3.10.12
 
