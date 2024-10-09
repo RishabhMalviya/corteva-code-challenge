@@ -1,5 +1,7 @@
 # Code Challenge Submission - Rishabh Malviya
 
+The answers for the individual questions can be found in the [`answers`](https://github.com/RishabhMalviya/corteva-code-challenge/tree/main/answers) folder. They are just markdown files describing the answers with any additional links also in there.
+
 ## How to Run Locally
 ### 1. Setup
 This solution makes use of `pyproject.toml` and expects the end user to have `pip` and `python` (>=3.10) installed on their system.
