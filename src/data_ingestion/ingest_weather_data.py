@@ -63,9 +63,10 @@ def ingest_file(filepath: str):
         logger.debug(f'{len(result)} records inserted for dates from {result[0].date} to {result[-1].date} for station ID {station_id}')
 
 
-def ingest_data():
+def ingest_data(num_files: int = -1):
     directory = 'data/wx_data'
     files = [os.path.join(directory, f) for f in os.listdir(directory) if os.path.isfile(os.path.join(directory, f))]
+    files = files[:min(num_files,len(files))] if not num_files == -1 else files
     
     for filepath in files:
         ingest_file(filepath)

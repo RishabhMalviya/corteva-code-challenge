@@ -5,9 +5,8 @@ import pytest
 from sqlalchemy import inspect
 from sqlalchemy.orm import Session
 
-from data_models import Base
+from data_models import Base, engine
 from data_models.weather_data import WeatherData
-from data_models import engine
 from data_ingestion.create_tables import create_tables
 from data_ingestion.ingest_weather_data import ingest_file
 
@@ -16,8 +15,8 @@ from data_ingestion.ingest_weather_data import ingest_file
 @pytest.fixture(scope='function')
 def session():
     create_tables()
-    session = Session(engine)
 
+    session = Session(engine)
     yield session
 
     # Teardown: close the session and drop all tables

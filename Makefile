@@ -37,3 +37,10 @@ run_api:
 run: run_data_pipeline run_data_analysis run_api
 
 all: clean setup run
+
+test:
+	if [ -f "local_db.db" ]; then \
+		rm "local_db.db"; \
+		echo "Existing Local DB deleted."; \
+	fi
+	source ./.venv/bin/activate && pytest	

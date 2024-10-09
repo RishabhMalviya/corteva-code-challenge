@@ -15,7 +15,7 @@ This solution makes use of `pyproject.toml` and expects the end user to have `pi
 Run `make setup` to setup your local venv. Then run `source ./.venv/bin/activate` to activate it. All the following steps assume you have this venv activated.
 
 ### 1.5 Running Tests
-You can run tests by simply running `pytest` from the repo root.
+Execute `make test`. **NOTE**: This will over-write the existing `local_db.db`! To avoid this, change the value of `DB_URL` in the `.env` file.
 
 ### 2. Data Ingestion Pipeline
 Run `make run_data_pipeline`. This takes several minutes to complete. Patience....
