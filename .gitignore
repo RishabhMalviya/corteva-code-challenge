@@ -1,5 +1,5 @@
 ## SPECIFIC TO THIS PROJECT
-# local_db.db
+local_db.db
 app.log
 
 ## GENERAL PYTHON GITIGNORE
