@@ -9,6 +9,7 @@ logging.basicConfig(
         logging.StreamHandler()
     ]
 )
+import coloredlogs
 
 import numpy as np
 import pandas as pd
@@ -19,6 +20,7 @@ from data_models import engine
 
 
 logger = logging.getLogger(__name__)
+coloredlogs.install(level='DEBUG', logger=logger)
 
 
 def _convert_row_to_orm_model(row) -> WeatherData:
@@ -63,7 +65,7 @@ def ingest_file(filepath: str):
 
 def ingest_data():
     directory = 'data/wx_data'
-    files = [os.path.join(directory, f) for f in os.listdir(directory) if os.path.isfile(os.path.join(directory, f))]
+    files = [os.path.join(directory, f) for f in os.listdir(directory) if os.path.isfile(os.path.join(directory, f))][:5]
     
     for filepath in files:
         ingest_file(filepath)
